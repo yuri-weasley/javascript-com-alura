@@ -1,2 +1,2 @@
 # javascript com alura
- Resultados de aulas assistidas na Alura (Sim, eu assinei para aprofundar meus estudos, principalmente em JS e Java)
+ Results of classes attended at Alura (Yes, I signed to further my studies, mainly in JS and Java)
