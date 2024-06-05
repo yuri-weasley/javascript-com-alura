@@ -3,6 +3,9 @@ const focoBt = document.querySelector('.app__card-button--foco');
 const curtoBt = document.querySelector('.app__card-button--curto');
 const longoBt = document.querySelector('.app__card-button--longo');
 const botoes = document.querySelectorAll('.app__card-button');
+const musicaFocoInput = document.querySelector('#alternar-musica');
+const musica = new Audio('sons/luna-rise-part-one.mp3');
+musica.loop = true;
 
 const temp = document.querySelector('.app__card-timer');
 const imagem = document.querySelector('.app__image');
@@ -17,7 +20,7 @@ const tempoLongo = 900;
 
 /*
 focoBt.addEventListener('click', () => {
-    arrowfunction???
+    arrowfunction??? É uma forma de declara uma função anônima
     html.setAttribute('data-contexto', 'foco');
     imagem.setAttribute('src', 'imagens/foco.png');
 })
@@ -33,6 +36,13 @@ longoBt.addEventListener('click', () => {
 })
 */
 
+musicaFocoInput.addEventListener('change', () => {
+    if(musica.paused) {
+        musica.play();
+    } else {
+        musica.pause();
+    }
+})
 function alterarContexto(contexto) {
     botoes.forEach(function(contexto){
         contexto.classList.remove('active');
