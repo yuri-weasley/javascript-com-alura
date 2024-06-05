@@ -14,7 +14,9 @@ const tempoFoco = 1500;
 const tempoCurto = 300;
 const tempoLongo = 900;
 
+/*
 focoBt.addEventListener('click', () => {
+    arrowfunction???
     html.setAttribute('data-contexto', 'foco');
     imagem.setAttribute('src', 'imagens/foco.png');
 })
@@ -27,4 +29,37 @@ curtoBt.addEventListener('click', () => {
 longoBt.addEventListener('click', () => {
     html.setAttribute('data-contexto', 'descanso-longo');
     imagem.setAttribute('src', 'imagens/descanso-longo.png');
+})
+*/
+
+function alterarContexto(contexto) {
+    html.setAttribute('data-contexto', contexto);
+    imagem.setAttribute('src', `imagens/${contexto}.png`);
+
+    switch(contexto) {
+        case "foco":
+            frase.innerHTML = `Otimize sua produtividade,<br>
+            <strong class="app__title-strong">mergulhe no que importa.</strong>`
+        break;
+        case "descanso-curto":
+            frase.innerHTML = `Que tal dar uma respirada?<br>
+            <strong class="app__title-strong">Faça uma pausa curta!</strong>`
+        break;
+        case "descanso-longo":
+            frase.innerHTML = `Hora de voltar à superfície.<br>
+            <strong class="app__title-strong">Faça uma pausa longa.</strong>`
+        default:
+            break;
+    }
+}
+focoBt.addEventListener('click', () => {
+    alterarContexto('foco');
+})
+
+curtoBt.addEventListener('click', () => {
+  alterarContexto('descanso-curto');
+})
+
+longoBt.addEventListener('click', () => {
+    alterarContexto('descanso-longo');
 })
