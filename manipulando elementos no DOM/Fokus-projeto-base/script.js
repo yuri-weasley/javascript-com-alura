@@ -10,6 +10,9 @@ const musica = new Audio('sons/luna-rise-part-one.mp3');
 musica.loop = true;
 var tempoDecorridoEmSegundos = 5;
 var intervaloId = null;
+const somPlay = new Audio('sons/play.wav');
+const somPause = new Audio('sons/pause.mp3');
+const somBeep = new Audio('sons/beep.mp3');
 
 const temp = document.querySelector('.app__card-timer');
 const imagem = document.querySelector('.app__image');
@@ -87,6 +90,7 @@ longoBt.addEventListener('click', () => {
 
 const contagemRegressiva = () => {
     if(tempoDecorridoEmSegundos <= 0) {
+        somBeep.play();
         zerar();
         alert('Tempo finalizado!');
         return;
@@ -99,12 +103,14 @@ startPauseBt.addEventListener('click', iniciarOuPausar);
 
 function iniciarOuPausar() {
     if(intervaloId) {
+        somPause.play();
         zerar();
         return;
     }
-    intervaloId = setInterval(contagemRegressiva, 1000);
+    somPlay.play();
+    intervaloId = setInterval(contagemRegressiva, 1000); //função a ser executada e o tempo em ms em que a função deve se repetir
 }
 function zerar() {
-    clearInterval(intervaloId)
+    clearInterval(intervaloId) //cancela uma ação repetitiva e cronometrada que foi previamente estabelecida pela setInterval
     intervaloId = null;
 }
