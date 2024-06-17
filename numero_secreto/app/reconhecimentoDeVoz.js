@@ -12,7 +12,8 @@ window.SpeechRecognition =
 
   function onSpeak(e) {
     chute = e.results[0][0].transcript
-    exibeChuteNaTela(chute)
+    exibeChuteNaTela(chute);
+    verificaSeOChutePossuiValorValido(chute)
   }
 
   function exibeChuteNaTela(chute) {
@@ -21,3 +22,5 @@ window.SpeechRecognition =
       <span class="box">${chute}</span>
     `
   }
+
+  recognition.addEventListener('end', () => recognition.start())
